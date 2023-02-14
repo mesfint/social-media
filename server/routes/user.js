@@ -1,4 +1,4 @@
-import express from "expres"
+import express from "express"
 import { login } from "../controllers/auth.js";
 import {getUser,getUserFriends,addRemoveFriend} from "../controllers/users.js"
 import { verifyToken } from "../middleware/auth.js";

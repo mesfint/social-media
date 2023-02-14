@@ -17,7 +17,7 @@ const postSchema = new mongoose.Schema(
             required: true,
            
         },
-        location:String
+        location:String,
         description:String,
         userPicturePath: String,
         picturePath:String,
