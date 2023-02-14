@@ -50,3 +50,23 @@ export const addRemoveFriend = async(req,res)=>{
 
 }
 
+//Update
+
+export const addRemoveFriend = async (req,res)=>{
+    try {
+        const {id, friendId} = req.params;
+        const user = await User.findById(id);//current user
+        const friend = await User.findById(friendId);
+
+        if(user.friends.includes(friendId)){
+            user.friends = user.friends.filter((id)=> id !== friendId) 
+            friend.friends = friend.friends.filter((id)=> id !== friendId) 
+        }else {
+            user.friends.push(friendId);
+            friend.friends.push(id);
+        }
+
+    }catch(err){
+        res.status(400).json({message: err.message})
+    }
+}
