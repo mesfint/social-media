@@ -14,7 +14,7 @@ export const register = async (req, res)=>{
             email,
             password,
             picturePath,
-            freinds,
+            friends,
             location,
             occupation,
         }= req.body;
@@ -27,7 +27,7 @@ export const register = async (req, res)=>{
             email,
             password: passwordHash,
             picturePath,
-            freinds,
+            friends,
             location,
             occupation,
             viewdProfile: Math.floor(Math.random() * 10000),
@@ -58,7 +58,7 @@ export const login = async (req,res)=>{
 
         const token = jwt.sign({ id: user._id}, process.env.JWT_SECRET);
         //We dont want to send back the password to the frontend, so we delete
-        delete user.password;
+        delete user.password;//extra secuirity
         res.status(200).json({ token, user})
 
      } catch(err)=>{
