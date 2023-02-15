@@ -63,9 +63,9 @@ export const likePost= async(req,res)=>{
         const isLiked = post.likes.get(userId);//if the userId exist that post is liked by that user
 
         if(isLiked){
-            post.likes.delete(userId);
+            post.likes.delete(userId);//remove likes
         }else {
-            post.likes.set(userId,true);
+            post.likes.set(userId,true);//add likes
 
         }
 
@@ -74,7 +74,7 @@ export const likePost= async(req,res)=>{
             {likes: post.likes},
             {new: true}
         )
-        res.status(200).json(updatedPost)
+        res.status(200).json(updatedPost)//This is gor the convienience of frontend dev
     }catch(err){
         res.status(404).json({message: err.message})
     }
