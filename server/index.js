@@ -14,7 +14,8 @@ import postRoutes from "./routes/posts.js"
 import { register} from "./controllers/auth.js"
 import { createPost} from "./controllers/posts.js"
 import { verifyToken } from "./middleware/auth.js"
-import User from ".models/Post.js"
+import Post from "./models/Post.js"
+import User from "./models/User.js"
 import { users, posts} from "./data/index.js"
 
 // configuration
@@ -66,5 +67,5 @@ mongoose.connect(process.env.MONGO_URL,{
 
         //Add data one time
     // User.insertMany(users);
-    // Post.insertMany(posts)
+    // Post.insertMany(posts);
 }).catch((error)=> console.log(`${error} did not connect`));
